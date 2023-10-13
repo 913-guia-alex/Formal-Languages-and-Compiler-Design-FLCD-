@@ -12,7 +12,7 @@ read (c)
 
 integer max
 
-if(a>b)
+if(αa>b)
    max=a
 else
    max=b

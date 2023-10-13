@@ -81,10 +81,9 @@ newline
 ,
 var
 if
-print
-readInt
-readString
 else
+write
+do
+integer
+string
 while
-set_nth
-get_nth

@@ -1,14 +1,19 @@
 Alphabet
 a-z
 A-Z
-0-9
+
+Underline Character
 _
+
+Decimal Digit
+0-9
+
 
 Lexic
 
 operators: +, -, *, /, ==, <, <=, >, >=, =
-separators: {}, (), ;, space, newline, ", ',' (as in the actual comma)
-reserved words: var, if, print, readInt, readString, else, while, set_nth, get_nth
+separators: {}, (), ;, space, newline, ", '
+reserved words:if, write, integer,string, else, while , do , for
 
 identifier = (letter|"_"){letter|digit|"_"}
 letter = "A"|"B"|..|"Z"|"a"|"b"..|"z"
