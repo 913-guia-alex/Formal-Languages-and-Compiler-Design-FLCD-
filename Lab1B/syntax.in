@@ -1,20 +1,35 @@
-program = {statement}
-statement = (var_statement|arr_statement|assign_statement|if_statement|while_statement|return_statement|function_call_statement) ";"
-var_statement = "var" identifier_list
-arr_statement = "arr" "<" positive_number ">" pure_identifier_list
-pure_identifier_list = identifier {"," identifier}
-identifier_list = identifier ["=" expression] {"," identifier ["=" expression]}
-expression = int_expression | string_expression
-int_expression = int_constant | identifier | 
-                   int_expression ("+"|"-"|"*"|"/") int_expression |
-                   "(" int_expression ("+"|"-"|"*"|"/") int_expression ")"
-string_expression = string_constant | identifier |
-                      string_expression + string_expression
-expression_list = expression{"," expression}
-assign_statement = identifier "=" expression
-if_statement = "if" "(" condition ")" "{" {statement} "}" ["else" "{" {statement} "}"]
-condition = expression ("=="|"<"|"<="|">"|">=") expression
-while_statement = "while" "(" condition ")" "{" {statement} "}"
-return_statement = "return" expression
-function_call_statement = function_name "(" expression_list? ")"
-function_name = "print" | "set_nth" | "get_nth" | "readInt" | "readString"
+program ::= "prog" "{" statemelist "}" 					#represents the entry point for your program, starting with "prog {" and ending with "}". 
+
+declaration ::= IDENTIFIER "(" type ")" [","] {declaration} 		# defines the syntax for variable declarations.
+type1 ::= "boolean" | "integer" | "string"				# represents the basic data types.
+vectordecl ::= "vec" "(" type1 "[" INTCONST "]" ")"  			# specifies the syntax for vector declarations.
+type ::= type1 | vectordecl						# encompasses both basic data types and array types.
+
+statementlist ::= statement | statement ";" statementlist		# is a list of statements, separated by semicolons.
+statement ::= simplestatement | structstatement				# includes simple and structured statements.
+
+simplestatement ::= assignstatement | iostatement | declaration		# includes assignment statements, input/output statements, and 														# variable declarations.
+
+assignstatement ::= IDENTIFIER "=" expression				# defines the syntax for assignment statements.
+expression ::= term {"+" term | "-" term}				# 'term' and 'factor' describe the syntax for arithmetic expressions.
+term ::= factor {"*" factor | "/" factor}				#
+factor ::= "(" expression ")" | IDENTIFIER | CONST			#
+
+iostatement::= "read" "(" IDENTIFIER ")" | "write" "(" IDENTIFIER ")" | "write" "(" CONST ")"   	# specifies the syntax for read and 																	# print statements.								
+
+structstatement ::= statementlist | ifstatement | whilestatement					#  includes lists of statements,if statements,and while loops.
+
+ifstatement ::= "if" condition "{" statementlist "}" ["else" "{" statementlist "}"] 			# represents if-else conditional statements.
+whilestatement ::= "while" condition "{" statementlist "}"						# represents while loop conditonal statements.
+
+condition ::= expression RELATION expression				# specifies the syntax for boolean expressions.
+RELATION ::= "<" | "<=" | "==" | "<>" | ">=" | ">"			# represents relational operators.
+
+IDENTIFIER ::= identifier						# IDENTIFIER and CONST are used to refer to identifiers and CONST ::= int_constant | string_constant								# constants based on the lexical description.
+
+identifier ::= (letter|"_"){letter|digit|"_"}				# same as in the lexical description file
+letter ::= "A" | "B" | ... | "Z" | "a" | "b" | ... | "z"		#
+digit ::= "0" | "1" | ... | "9"						#
+int_constant ::= ["+" | "-"] non_zero_digit {digit} | "0"		#
+non_zero_digit ::= "1" | "2" | ... | "9"				#
+string_constant ::= """{letter|digit|"_"|" "}"				#

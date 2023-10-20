@@ -1,19 +1,14 @@
 Alphabet
 a-z
 A-Z
-
-Underline Character
-_
-
-Decimal Digit
 0-9
-
+_
 
 Lexic
 
 operators: +, -, *, /, ==, <, <=, >, >=, =
 separators: {}, (), ;, space, newline, ", '
-reserved words:if, write, integer,string, else, while , do , for
+reserved words: var, if, print, write , else, while
 
 identifier = (letter|"_"){letter|digit|"_"}
 letter = "A"|"B"|..|"Z"|"a"|"b"..|"z"

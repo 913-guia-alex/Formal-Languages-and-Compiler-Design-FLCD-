@@ -2,17 +2,17 @@
 
 compute the sum of n numbers
 
-integer n;
-integer sum;
-vector v = [];
+integer n
+integer sum
+vector v = []
 
-read(n);
+read(n)
 
 for(integer i=1 ; i<=n ; i++)
    {
-   read(v[i]);
-   sum = sum+v[i];
+   read(v[i])
+   sum = sum+v[i]
    }
-write(sum);
+write(sum)
 
 ###
