@@ -1,0 +1,83 @@
+
+
+                                                HashTable
+
+
+Methods:
+    - __init__(size: int)
+        Initializes the hash table with a specified size.
+    - _hash(key: Any) -> int
+        Generates a hash value for the given key.
+    - add(key: Any) -> Tuple[int, int]
+        Adds the key to the hash table if it doesn't already exist and returns its position.
+    - contains(key: Any) -> bool
+        Checks if the key is present in the hash table.
+    - get_position(key: Any) -> Tuple[int, int]
+        Returns the position of the key in the hash table.
+    - __str__() -> str
+        Returns a string representation of the hash table.
+
+
+                                                  SymbolTable
+
+
+Methods:
+    - __init__(size: int)
+        Initializes the symbol table with a specified size.
+    - add_identifier(key: Any)
+        Adds an identifier to the identifiers table and returns its position.
+    - has_identifier(key: Any)
+        Checks if the identifier is present in the identifiers table.
+    - get_position_identifier(key: Any)
+        Returns the position of the identifier in the identifiers table.
+    - add_constant(key: Any)
+        Adds a constant to the constants table and returns its position.
+    - has_constant(key: Any)
+        Checks if the constant is present in the constants table.
+    - get_position_constant(key: Any)
+        Returns the position of the constant in the constants table.
+    - __str__()
+        Returns a string representation of the symbol table.
+
+
+                                                ScannerException
+
+Methods:
+    - __init__(message: str)
+        Initializes the ScannerException with a specific error message.
+
+
+                                                   Scanner
+
+
+Methods:
+    - set_program(program: str)
+        Sets the program to be scanned.
+    - read_tokens(token_file: str)
+        Reads tokens from the given token file.
+    - skip_spaces()
+        Skips spaces in the program during scanning.
+    - skip_comments()
+        Skips comments in the program during scanning.
+    - treat_int_constant()
+        Identifies and processes integer constants in the program.
+    - treat_string_constant()
+        Identifies and processes string constants in the program.
+    - check_if_valid(possible_identifier: str, program_substring: str)
+        Checks if a possible identifier is valid and not a reserved word.
+    - treat_identifier()
+        Identifies and processes identifiers in the program.
+    - treat_from_token_list()
+        Identifies tokens from the token list in the program.
+    - next_token()
+        Scans the program to identify the next token or raises a ScannerException.
+    - scan(program_file_name: str, token_file_name: str)
+        Performs the full lexical analysis process, scanning the program and generating output files.
+
+
+
+
+
+
+
+

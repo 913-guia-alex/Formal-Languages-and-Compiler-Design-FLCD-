@@ -1,0 +1,21 @@
+Constants:
+HashTable{items=[[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]}Constants:
+HashTable{items=[['"a is a prime number"'], [1], [2], [], [], [], [], [], [], ['"a is not a prime number"'], [], [], [], [], [], [], [], [], [], []]}Constants:
+HashTable{items=[[], [1], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]}Constants:
+HashTable{items=[[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]}Constants:
+HashTable{items=[['"a is a prime number"'], [1], [2], [], [], [], [], [], [], ['"a is not a prime number"'], [], [], [], [], [], [], [], [], [], []]}Constants:
+HashTable{items=[[], [1], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]}Constants:
+HashTable{items=[[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]}Constants:
+HashTable{items=[['"a is a prime number"'], [1], [2], [], [], [], [], [], [], ['"a is not a prime number"'], [], [], [], [], [], [], [], [], [], []]}Constants:
+HashTable{items=[[], [1], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]}Constants:
+HashTable{items=[['x'], [], [], [], [], ['else'], ['max'], ['if'], [], [], ['integer'], [], ['read'], [], [], ['write'], [], ['a'], ['b'], ['c']]}Constants:
+HashTable{items=[['is'], ['prime'], [], [], [], ['else', 'i'], [], ['if', 'for'], [], ['number'], ['integer'], [], ['read', 'elseif'], [], ['OK', 'r'], ['write'], ['boolean'], ['a', 'not', 'break'], [], []]}Constants:
+HashTable{items=[[], ['sum'], [], [], [], ['i'], [], ['for'], [], ['m'], ['integer', 'n'], [], ['read'], [], [], ['write'], [], [], ['v'], ['vector']]}Constants:
+HashTable{items=[['x'], [], [], [], [], ['else'], ['max'], ['if'], [], [], ['integer'], [], ['read'], [], [], ['write'], [], ['a'], ['b'], ['c']]}Constants:
+HashTable{items=[['x'], [], [], [], [], ['else'], ['max'], ['if'], [], [], ['integer'], [], ['read'], [], [], ['write'], [], ['a'], ['b'], ['c']]}Constants:
+HashTable{items=[['is'], ['prime'], [], [], [], ['else', 'i'], [], ['if', 'for'], [], ['number'], ['integer'], [], ['read', 'elseif'], [], ['OK', 'r'], ['write'], ['boolean'], ['a', 'not', 'break'], [], []]}Constants:
+HashTable{items=[[], ['sum'], [], [], [], ['i'], [], ['for'], [], ['m'], ['integer', 'n'], [], ['read'], [], [], ['write'], [], [], ['v'], ['vector']]}Constants:
+HashTable{items=[['x'], [], [], [], [], ['else'], ['max'], ['if'], [], [], ['integer'], [], ['read'], [], [], ['write'], [], ['a'], ['b'], ['c']]}Constants:
+HashTable{items=[[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]}Constants:
+HashTable{items=[[0, '"a is a prime number"'], [1], [2], [], [], [], [], [], [], ['"a is not a prime number"'], [], [], [], [], [], [], [], [], [], []]}Constants:
+HashTable{items=[[], [1], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]}

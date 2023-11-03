@@ -19,7 +19,7 @@ class HashTable:
         if key not in self.items[hash_value]:
             self.items[hash_value].append(key)
             return hash_value, self.items[hash_value].index(key)
-        raise ValueError(f"Key {key} is already in the table!")
+        return hash_value, self.items[hash_value].index(key)
 
     def contains(self, key: Any) -> bool:
         hash_value = self._hash(key)
