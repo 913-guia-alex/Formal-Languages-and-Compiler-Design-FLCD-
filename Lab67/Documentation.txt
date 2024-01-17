@@ -1,0 +1,136 @@
+class Grammar:
+
+    Class representing a grammar.
+
+    Properties:
+    - EPSILON: A constant representing the empty string, "E".
+    - non_terminal_symbols: Set of non-terminal symbols in the grammar (N).
+    - terminal_symbols: Set of terminal symbols in the grammar (E).
+    - production_rules: Dictionary containing production rules for each non-terminal symbol (P).
+    - start_symbol: The start symbol of the grammar (S).
+
+    Methods:
+    - __init__(non_terminal_symbols, terminal_symbols, production_rules, start_symbol): Initializes a Grammar instance.
+    - get_start_symbol() -> str: Returns the start symbol of the grammar.
+    - is_terminal_symbol(symbol: str) -> bool: Checks if the given symbol is a terminal symbol.
+    - is_non_terminal_symbol(symbol: str) -> bool: Checks if the given symbol is a non-terminal symbol.
+    - validate(non_terminal_symbols, terminal_symbols, production_rules, start_symbol) -> bool: Validates the grammar.
+    - parse_line(line: str) -> List[str]: Parses a line from a file and returns a list of values.
+    - from_file(file_name: str) -> Grammar: Creates a Grammar object from a file.
+    - parse_rules(rules: List[str]) -> Dict[str, List[Tuple[str, int]]]: Parses production rules from a list of rules.
+    - split_right_side(prod: str) -> List[str]: Splits the right side of a production rule into a list of symbols.
+    - is_non_terminal(value: str) -> bool: Checks if the given value is a non-terminal symbol.
+    - is_terminal(value: str) -> bool: Checks if the given value is a terminal symbol.
+    - get_production_rules_for(non_terminal: str) -> List[Tuple[str, int]]: Gets production rules for a non-terminal symbol.
+    - get_production_rule_for_index(index: int) -> Tuple[str, str]: Gets the production rule for a given index.
+    - get_lhs_of_ith_production_rule_of_symbol(symbol: str, i: int) -> List[str]: Gets the left-hand side of the i-th production rule.
+    - get_production_rule_as_str() -> str: Gets a string representation of all production rules.
+    - check_cfg() -> bool: Checks if the grammar is in Chomsky Normal Form.
+    - print_syntax() -> str: Returns a string representation of the grammar's syntax details.
+
+
+class Node:
+
+    Class representing a node in a tree.
+
+    Properties:
+    - symbol: The symbol represented by the node.
+    - parent: The parent node.
+    - left: The left child node.
+
+    Methods:
+    - __init__(symbol: str, parent: Optional[Node] = None, left: Optional[Node] = None): Initializes a Node in a tree.
+    - set_parent(parent: Node): Sets the parent node of the current node.
+    - set_left(left: Node): Sets the left child node of the current node.
+
+
+class ParsingState(Enum):
+
+    Enumeration representing different parsing states.
+
+    - NORMAL: The normal parsing state.
+    - BACK: The backtracking parsing state.
+    - FINAL: The final parsing state.
+    - ERROR: The error parsing state.
+
+    Methods:
+    - __str__() -> str: Returns the character representation of the parsing state.
+
+
+class ParserStrategy:
+
+    Class representing a parser strategy.
+
+    Properties:
+    - production_rules: Production rules for the parser.
+
+    Methods:
+    - __init__(production_rules: Dict[str, List[Tuple[str, int]]]): Initializes the ParserStrategy with production rules.
+    - expand(configuration: ParsingConfiguration): Expands the configuration by applying production rules.
+    - advance(configuration: ParsingConfiguration): Advances the parsing configuration.
+    - momentary_insuccess(configuration: ParsingConfiguration): Marks the parsing configuration as momentarily unsuccessful.
+    - back(configuration: ParsingConfiguration): Moves back in the parsing configuration.
+    - another_try(configuration: ParsingConfiguration): Attempts another parsing iteration.
+    - success(configuration: ParsingConfiguration): Marks the parsing configuration as successful.
+    - get_lhs_of_ith_production_rule_of_symbol(symbol: str, i: int) -> List[str]: Retrieves the left-hand side of the i-th production rule.
+
+
+class ParsingConfiguration:
+
+    Class representing a parsing configuration.
+
+    Properties:
+    - s: Parsing state.
+    - i: Current position in the input sequence.
+    - alpha: List representing the alpha part of the configuration.
+    - index_mapping: Mapping of alpha indices to production rule numbers.
+    - beta: List representing the beta part of the configuration.
+    - next: Reference to the next parsing configuration.
+
+    Methods:
+    - __init__(s: ParsingState = ParsingState.NORMAL, i: int = 1, alpha: Optional[List[str]] = None,
+              index_mapping: Optional[OrderedDict[int, int]] = None, beta: Optional[List[str]] = None):
+        Initializes a parsing configuration.
+    - __str__() -> str: Returns a string representation of the parsing configuration.
+    - alpha_to_list_of_productions_string() -> List[Tuple[str, int]]:
+        Converts the alpha part of the configuration to a list of tuples representing symbols and their production rule numbers.
+
+
+class ParserAlgorithm:
+
+    Class representing a parsing algorithm.
+
+    Properties:
+    - grammar: The grammar for parsing.
+    - initial_configuration: Initial parsing configuration.
+    - strategy: Parser strategy for parsing.
+    - sequence: Input sequence to parse.
+
+    Methods:
+    - __init__(grammar: Grammar, sequence: str): Initializes the ParserAlgorithm.
+    - execute(output_file_path: str): Executes the parsing algorithm and writes the output to a file.
+    - execute_algorithm() -> ParsingConfiguration: Executes the parsing algorithm.
+    - get_table_from_config(config: ParsingConfiguration) -> str: Converts the final parsing configuration to a table representation.
+    - config_to_table(config: ParsingConfiguration) -> List[List[str]]: Converts the final parsing configuration to a table representation.
+    - get_alpha_from_config(config: ParsingConfiguration) -> List[Tuple[str, List[str]]]: Extracts the alpha part from the final parsing configuration.
+    - alpha_to_tree(alpha: List[Tuple[str, List[str]]]) -> List[Node]: Converts the alpha part to a tree structure.
+    - tree_to_table(tree: List[Node]) -> List[List[str]]: Converts the tree structure to a table representation.
+
+
+class TestParserStrategy(unittest.TestCase):
+
+    Class for testing the ParserStrategy class.
+
+    Properties:
+    - config: A ParsingConfiguration instance.
+    - strategy: A ParserStrategy instance.
+
+    Methods:
+    - setUp(): Set up method for initializing test data.
+    - test_expand(): Tests the `expand` method of the ParserStrategy class.
+    - test_advance(): Tests the `advance` method of the ParserStrategy class.
+    - test_momentary_insuccess(): Tests the `momentary_insuccess` method of the ParserStrategy class.
+    - test_back(): Tests the `back` method of the ParserStrategy class.
+    - test_another_try(): Tests the `another_try` method of the ParserStrategy class.
+    - test_success(): Tests the `success` method of the ParserStrategy class.
+
